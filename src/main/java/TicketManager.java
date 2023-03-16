@@ -1,8 +1,8 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class TicketManager {
     private TicketRepository repository;
-
     public TicketManager(TicketRepository repository) {
         this.repository = repository;
     }
@@ -12,6 +12,7 @@ public class TicketManager {
     }
 
     public Ticket[] findAll(String from, String to) {
+        TicketByTravelTimeAscComparator comparator = new TicketByTravelTimeAscComparator();
         Ticket[] result = new Ticket[0];
         int index = 0;
         for (Ticket ticket : repository.allTickets()) {
@@ -28,7 +29,7 @@ public class TicketManager {
                 result = tmp;
             }
         }
-        Arrays.sort(result);
+        Arrays.sort(result, comparator);
         return result;
     }
 

@@ -1,4 +1,4 @@
-public class Ticket implements Comparable<Ticket> {
+public class Ticket {
     protected int id;
     protected int price;
     protected String departureAirport;
@@ -17,15 +17,15 @@ public class Ticket implements Comparable<Ticket> {
         return getDepartureAirport().contains(from) && getArrivalAirport().contains(to);
     }
 
-    @Override
-    public int compareTo(Ticket o) {
-        if (o.price > this.price) {
-            return -1;
-        } else if (o.price < this.price) {
-            return 1;
-        }
-        return 0;
-    }
+//    @Override
+//    public int compareTo(Ticket o) {
+//        if (o.price > this.price) {
+//            return -1;
+//        } else if (o.price < this.price) {
+//            return 1;
+//        }
+//        return 0;
+//    }
 
     public int getId() {
         return id;
